@@ -61,6 +61,7 @@
   "homepage": "https://github.com/akhsterminator/receipts#readme",
   "bugs": "https://github.com/akhsterminator/receipts/issues",
   "license": "MIT",
+  "author": "Hashim Umar Ali (https://hashimua.com)",
   "dependencies": {
     "@anthropic-ai/sdk": "^1.14.0",
     "@modelcontextprotocol/sdk": "^1.32.2",

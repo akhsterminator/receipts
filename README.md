@@ -213,4 +213,4 @@ Receipts is run in public as a product, with its own evidence:
 
 Issues and PRs are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). Feature requests use a template that asks for the problem rather than the solution, because they may become evidence in [product/spec.md](product/spec.md).
 
-MIT © 2026 [akhsterminator](https://github.com/akhsterminator)
+MIT © 2026 [Hashim Umar Ali](https://hashimua.com)
