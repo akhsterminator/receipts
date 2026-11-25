@@ -1,0 +1,14 @@
+---
+participant: P3
+segment: Monthly
+date: 2026-10-21
+interviewer: Alex
+---
+Alex: Walk me through a typical week with Tempo.
+Carlos Mendes: I travel for work most weeks. Monday to Thursday I'm in hotels, and the hotel wifi is always awful, so the videos buffer and drop to really low quality.
+Alex: What do you do when that happens?
+Carlos Mendes: Mostly I give up and do something from memory. I've tried screen recording classes at home so I have them on the road, which is a bit ridiculous.
+Alex: If you could change one thing?
+Carlos Mendes: Downloads. Let me download five classes on Sunday night and I'm sorted for the week. I'd pay more for that, genuinely.
+Alex: Anything about billing or your plan?
+Carlos Mendes: No, billing is fine. Oh, actually, I'd love the workouts to go into Garmin. My coach looks at my training load and Tempo sessions are invisible to her.

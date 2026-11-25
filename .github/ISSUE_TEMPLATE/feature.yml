@@ -1,0 +1,30 @@
+name: Feature request
+description: Receipts asks for receipts. Tell us the problem first.
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Receipts runs on its own evidence: requests here may be quoted (anonymously) in `product/spec.md`.
+        The most useful thing you can share is **what happened**, in your own words, rather than the solution you'd like.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What were you trying to do, and what got in the way?
+      placeholder: "Last week I was writing a spec for… and I had to…"
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How do you handle it today?
+  - type: textarea
+    id: idea
+    attributes:
+      label: Any idea how Receipts could help? (optional)
+  - type: dropdown
+    id: role
+    attributes:
+      label: Your role
+      description: Used as the segment when this issue becomes evidence.
+      options: [Product manager, Founder / tech lead, Engineer, Researcher / designer, Other]

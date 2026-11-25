@@ -1,0 +1,79 @@
+{
+  "name": "@hashimua/receipts",
+  "version": "0.1.0",
+  "description": "Evidence-backed product specs. Turn customer feedback into requirements where every line cites a verified customer quote, then check specs in CI before your AI agent builds them.",
+  "type": "module",
+  "bin": {
+    "receipts": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "examples/tempo",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:spec": "node dist/cli.js check product/spec.md --store product/.receipts",
+    "demo": "node dist/cli.js demo",
+    "site": "npm run build && node scripts/build-site.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "product-management",
+    "user-research",
+    "customer-feedback",
+    "voice-of-customer",
+    "product-discovery",
+    "prd",
+    "requirements",
+    "spec-driven-development",
+    "jobs-to-be-done",
+    "opportunity-solution-tree",
+    "llm",
+    "claude",
+    "mcp",
+    "ai-agents",
+    "github-actions",
+    "cli",
+    "local-first"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhsterminator/receipts.git"
+  },
+  "homepage": "https://github.com/akhsterminator/receipts#readme",
+  "bugs": "https://github.com/akhsterminator/receipts/issues",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "commander": "^15.1.0",
+    "picocolors": "^1.1.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.10",
+    "gifenc": "^1.0.3",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.2"
+  }
+}

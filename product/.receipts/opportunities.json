@@ -1,0 +1,150 @@
+[
+ {
+  "id": "O-01",
+  "title": "Support importing large PRD into multi specs",
+  "theme": "Spec",
+  "keywords": [
+   "spec",
+   "prd",
+   "spec roadmap",
+   "speckit",
+   "requirement changes",
+   "roadmap"
+  ],
+  "quoteIds": [
+   "Q-0025",
+   "Q-0014",
+   "Q-0002",
+   "Q-0015",
+   "Q-0016",
+   "Q-0001",
+   "Q-0006",
+   "Q-0008",
+   "Q-0012",
+   "Q-0007",
+   "Q-0010",
+   "Q-0011",
+   "Q-0005",
+   "Q-0009",
+   "Q-0013"
+  ],
+  "representativeQuoteId": "Q-0025",
+  "stats": {
+   "quotes": 15,
+   "customers": 5,
+   "segments": {
+    "user": 3,
+    "contributor": 2
+   },
+   "kinds": {
+    "pain": 8,
+    "request": 7
+   },
+   "votes": 7,
+   "firstSeen": "2025-11-04T15:01:51.000Z",
+   "lastSeen": "2026-09-01T03:16:25.000Z"
+  },
+  "score": 28.3,
+  "breakdown": {
+   "reach": 4.085,
+   "intensity": 0.552,
+   "segmentWeight": 1,
+   "recency": 0.316
+  },
+  "requirement": {
+   "title": "Support importing large PRD into multi specs"
+  }
+ },
+ {
+  "id": "O-02",
+  "title": "/speckit.revise - update the current spec without rewriting artifacts",
+  "theme": "Spec",
+  "keywords": [
+   "[feature]",
+   "task",
+   "speckit",
+   "update",
+   "implement",
+   "specify"
+  ],
+  "quoteIds": [
+   "Q-0017",
+   "Q-0020",
+   "Q-0019",
+   "Q-0018",
+   "Q-0003",
+   "Q-0004",
+   "Q-0021"
+  ],
+  "representativeQuoteId": "Q-0017",
+  "stats": {
+   "quotes": 7,
+   "customers": 3,
+   "segments": {
+    "user": 3
+   },
+   "kinds": {
+    "pain": 3,
+    "request": 3,
+    "praise": 1
+   },
+   "votes": 5,
+   "firstSeen": "2025-09-20T08:28:21.000Z",
+   "lastSeen": "2026-11-17T00:32:47.000Z"
+  },
+  "score": 25,
+  "breakdown": {
+   "reach": 3.292,
+   "intensity": 0.423,
+   "segmentWeight": 1,
+   "recency": 0.644
+  },
+  "requirement": {
+   "title": "/speckit.revise - update the current spec without rewriting artifacts"
+  }
+ },
+ {
+  "id": "O-03",
+  "title": "Project-Level PRD Generation and Phase/Status Tracking",
+  "theme": "Phase",
+  "keywords": [
+   "phase",
+   "status",
+   "tracking",
+   "generation",
+   "prd",
+   "project"
+  ],
+  "quoteIds": [
+   "Q-0026",
+   "Q-0027",
+   "Q-0028",
+   "Q-0029"
+  ],
+  "representativeQuoteId": "Q-0026",
+  "stats": {
+   "quotes": 4,
+   "customers": 1,
+   "segments": {
+    "user": 1
+   },
+   "kinds": {
+    "pain": 2,
+    "request": 2
+   },
+   "votes": 7,
+   "firstSeen": "2025-10-25T23:51:54.000Z",
+   "lastSeen": "2025-10-25T23:51:54.000Z"
+  },
+  "score": 13.8,
+  "breakdown": {
+   "reach": 2.5,
+   "intensity": 0.5,
+   "segmentWeight": 1,
+   "recency": 0.102
+  },
+  "requirement": {
+   "title": "Project-Level PRD Generation and Phase/Status Tracking"
+  }
+ }
+]

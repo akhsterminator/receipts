@@ -1,0 +1,98 @@
+[
+  {
+    "id": "nps-01",
+    "score": 3,
+    "comment": "I'd recommend it more if I could pause my membership when I travel instead of cancelling and rejoining.",
+    "segment": "Monthly",
+    "submitted_at": "2026-10-14",
+    "email": "a.ward@example.com"
+  },
+  {
+    "id": "nps-02",
+    "score": 9,
+    "comment": "Instructors are brilliant and the classes are the right length.",
+    "segment": "Annual",
+    "submitted_at": "2026-10-14",
+    "email": "b.ng@example.com"
+  },
+  {
+    "id": "nps-03",
+    "score": 6,
+    "comment": "Offline downloads. I travel every week and the app is useless on planes.",
+    "segment": "Annual",
+    "submitted_at": "2026-10-15",
+    "email": "c.osei@example.com"
+  },
+  {
+    "id": "nps-04",
+    "score": 5,
+    "comment": "The billing is confusing. I didn't know my trial had turned into a paid plan until I saw my bank statement.",
+    "segment": "Trial",
+    "submitted_at": "2026-10-15",
+    "email": "d.kim@example.com"
+  },
+  {
+    "id": "nps-05",
+    "score": 7,
+    "comment": "Need a family plan. Paying for two accounts in one house feels wrong.",
+    "segment": "Monthly",
+    "submitted_at": "2026-10-16",
+    "email": "e.ruiz@example.com"
+  },
+  {
+    "id": "nps-06",
+    "score": 4,
+    "comment": "For a team plan we need an admin dashboard to manage seats and see who is actually using it.",
+    "segment": "Team",
+    "submitted_at": "2026-10-16",
+    "email": "f.adeyemi@initech-example.com"
+  },
+  {
+    "id": "nps-07",
+    "score": 8,
+    "comment": "Great app. Apple Watch heart rate would make it perfect.",
+    "segment": "Annual",
+    "submitted_at": "2026-10-17",
+    "email": "g.ito@example.com"
+  },
+  {
+    "id": "nps-08",
+    "score": 2,
+    "comment": "Crashes on Android all the time, especially when casting. Really frustrating when you're mid-workout.",
+    "segment": "Monthly",
+    "submitted_at": "2026-10-18",
+    "email": "h.mensah@example.com"
+  },
+  {
+    "id": "nps-09",
+    "score": 6,
+    "comment": "Let me filter by equipment! I don't own a kettlebell.",
+    "segment": "Monthly",
+    "submitted_at": "2026-10-18",
+    "email": "i.berg@example.com"
+  },
+  {
+    "id": "nps-10",
+    "score": 5,
+    "comment": "I was going to cancel for the summer but I'd rather pause it. Please add a pause option.",
+    "segment": "Annual",
+    "submitted_at": "2026-10-19",
+    "email": "j.walsh@example.com"
+  },
+  {
+    "id": "nps-11",
+    "score": 10,
+    "comment": "Absolutely love it, the variety of classes is amazing.",
+    "segment": "Annual",
+    "submitted_at": "2026-10-20",
+    "email": "k.horvat@example.com"
+  },
+  {
+    "id": "nps-12",
+    "score": 6,
+    "comment": "We need consolidated invoices for our team plan, finance keeps chasing me for receipts.",
+    "segment": "Team",
+    "submitted_at": "2026-10-21",
+    "email": "l.santos@umbrella-example.com"
+  }
+]
