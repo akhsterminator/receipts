@@ -26,7 +26,8 @@ jobs:
       - name: GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
+        # Skip when the tag came from a release published in the GitHub UI.
+        run: gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
       - name: Move the major-version tag (so `uses: akhsterminator/receipts@v0` gets this release)
         run: |
           major="${GITHUB_REF_NAME%%.*}"
