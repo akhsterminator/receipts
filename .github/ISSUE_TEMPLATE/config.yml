@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Talk to us (30-minute discovery interview)
+    url: https://github.com/akhsterminator/receipts/blob/main/product/interviews/README.md
+    about: We're interviewing PMs and founders about how specs get written. See the protocol and get in touch.

@@ -1,0 +1,16 @@
+# Example: what a team adds to their own repo to check spec.md on every PR.
+# (In this repo it checks the Tempo demo spec, which contains deliberate mistakes,
+#  so it's manual-only.)
+name: Receipts example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: akhsterminator/receipts@v0
+        with:
+          spec: spec.md

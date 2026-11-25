@@ -1,0 +1,68 @@
+name: Receipts check
+description: Fail a pull request when a spec has requirements without verified customer evidence. No requirement without a receipt.
+author: akhsterminator
+branding:
+  icon: check-square
+  color: green
+
+inputs:
+  spec:
+    description: Spec file to check, relative to working-directory.
+    default: spec.md
+  store:
+    description: Evidence store directory (default comes from receipts.config, usually .receipts).
+    default: ""
+  strict:
+    description: Fail on warnings (loudest voice, stale evidence, missing metric) as well as errors.
+    default: "false"
+  version:
+    description: Version of @hashimua/receipts from npm (e.g. "0.1.0" or "latest"). Leave empty to build from this action's source.
+    default: ""
+  working-directory:
+    description: Directory to run in.
+    default: "."
+
+outputs:
+  ok:
+    description: '"true" if the check passed.'
+    value: ${{ steps.check.outputs.ok }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Install Receipts
+      shell: bash
+      env:
+        RECEIPTS_VERSION: ${{ inputs.version }}
+      run: |
+        if [ -n "$RECEIPTS_VERSION" ]; then
+          echo "RECEIPTS_CMD=npx --yes @hashimua/receipts@$RECEIPTS_VERSION" >> "$GITHUB_ENV"
+        else
+          cd "$GITHUB_ACTION_PATH"
+          npm ci --no-audit --no-fund --loglevel=error
+          npm run build --silent
+          echo "RECEIPTS_CMD=node $GITHUB_ACTION_PATH/dist/cli.js" >> "$GITHUB_ENV"
+        fi
+
+    - name: Check spec evidence
+      id: check
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        SPEC: ${{ inputs.spec }}
+        STORE: ${{ inputs.store }}
+        STRICT: ${{ inputs.strict }}
+      run: |
+        args=(check "$SPEC" --format github)
+        [ -n "$STORE" ] && args=(--store "$STORE" "${args[@]}")
+        [ "$STRICT" = "true" ] && args+=(--strict)
+        set +e
+        $RECEIPTS_CMD "${args[@]}"
+        code=$?
+        set -e
+        if [ "$code" = "0" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+        exit $code

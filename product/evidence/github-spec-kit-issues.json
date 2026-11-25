@@ -1,0 +1,314 @@
+[
+ {
+  "number": 385,
+  "title": "Need for Human Oversight in Task Execution",
+  "body": "Hola muchachos,\n\nI have another piece of feedback regarding the spec kit. \nCurrently, the kit allows the LLM to execute all tasks in one go without human intervention. \nThis WILL result in the LLM producing unnecessary code, since all LLM's loves to overdo things(which means Goodbye \"clean code\" and Hello \"tons of code\") and we don't want that in our codebases. \n\nAs it doesn't naturally pause for review. It's important to have a human review and approve each task before moving on, to ensure the LLM explains its actions and keeps the solution as simple and minimal as possible, rather than over-engineering or generating unnecessary code.\n\nThis human oversight is crucial to avoid overproduction and maintain clarity.\n\n\n*I let an AI write the text for me, because I had tons of swear words  ;-)\n\nFinally I love Specify. You guys have done a beautiful job",
+  "html_url": "https://github.com/github/spec-kit/issues/385",
+  "created_at": "2025-09-20T08:28:21Z",
+  "updated_at": "2026-05-04T01:04:15Z",
+  "state": "closed",
+  "comments": 7,
+  "author_association": "NONE",
+  "user": {
+   "login": "GoranHalvarsson"
+  },
+  "labels": [
+   {
+    "name": "stale"
+   }
+  ],
+  "reactions": {
+   "+1": 4,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 1047,
+  "title": "Feature Request: Project-Level PRD Generation and Phase/Status Tracking",
+  "body": "\n**Is your feature request related to a problem? Please describe.**  \nCurrently, the `/speckit.specify` command works very well for individual feature specifications, but there is no structured way to capture, view, or manage an overall list of project features or their implementation status in one place. In larger projects, it becomes difficult to track high-level progress, plan upcoming phases, or update the project status holistically. This lack of visibility increases the risk of misalignment and impedes effective planning.\n\n**Describe the solution you'd like**  \nI propose introducing a new Spec Kit command to generate and manage a project-wide Product Requirements Document (PRD) from a comprehensive list of requirements.  \n- This command should:\n  - Accept the *complete* project’s requirements and generate a structured PRD representing the full scope of the project, broken down by phases and sub-tasks.\n  - Allow phases/sub-tasks to be updated with status indicators (e.g., Not Started, In Progress, Done).\n  - Support linking phases/sub-tasks to their respective feature specifications.\n  - Enable referencing specific phases or tasks when invoking the `/speckit.specify` or `/speckit.plan` commands (e.g., “specify phase 1 in prd”).\n- The PRD should be an evolving artifact:\n  - Each project phase can be planned and tracked from inception, and individual phases can be specified, updated, or re-planned as needed.\n  - Provide real-time visibility on where the project stands, facilitating planning, coordination, and reporting.\n\n**Describe alternatives you’ve considered**  \nWorkarounds include maintaining a separate document or external tracker, but these quickly become unsynchronized and lack the tight integration with Spec Kit’s existing workflow and automation.\n\n**Additional context**  \nHaving a project-wide PRD feature will enable teams to:\n- Plan ahead with visibility of all features and their statuses.\n- Update status for each phase, making progress tracking transparent at every project stage.\n- Reference phases/sub-tasks in existing Spec Kit commands, improving usability and alignment.\n",
+  "html_url": "https://github.com/github/spec-kit/issues/1047",
+  "created_at": "2025-10-25T23:51:54Z",
+  "updated_at": "2026-05-07T01:02:58Z",
+  "state": "closed",
+  "comments": 2,
+  "author_association": "NONE",
+  "user": {
+   "login": "harishkm83"
+  },
+  "labels": [
+   {
+    "name": "stale"
+   }
+  ],
+  "reactions": {
+   "+1": 7,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 1116,
+  "title": "Support importing large PRD into multi specs",
+  "body": "split large prd into multi specs",
+  "html_url": "https://github.com/github/spec-kit/issues/1116",
+  "created_at": "2025-11-04T15:01:51Z",
+  "updated_at": "2026-05-07T01:02:37Z",
+  "state": "closed",
+  "comments": 2,
+  "author_association": "NONE",
+  "user": {
+   "login": "lewis617"
+  },
+  "labels": [
+   {
+    "name": "stale"
+   }
+  ],
+  "reactions": {
+   "+1": 7,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 1527,
+  "title": "feat: Add /speckit.prd command to import and sync with existing PRD",
+  "body": "## Summary                                                                                                                                                      \n                                                                                                                                                                  \nAdd a command to import an existing PRD (Product Requirements Document) and list prioritized features as candidates for `/speckit.specify`.                     \n\nI'm happy to create a PR if this would be useful.\n                                                                                                                                                                  \n## Use Case                                                                                                                                                     \n                                                                                                                                                                  \n  Many projects already have a PRD.md that defines:                                                                                                               \n  - Prioritization where MoSCoW (Must/Should/Could/Won't) is common                                                                                                             \n  - Feature roadmap with status\n                                                                                                                                                                  \nCurrently there's a gap between the PRD (product-level) and `/speckit.specify` (feature-level). Users manually find features in their PRD, then run             \n  `/speckit.specify` separately with no linkage.                                                                                                                  \n                                                                                                                                                                  \n## Proposed Command                                                                                                                                             \n                                                                                                                                                                  \n### `/speckit.prd <path>`                                                                                                                                       \n                                                                                                                                                                  \nImport a PRD and list TODO items by priority:                                                                                                                   \n                                                                                                                                                                  \n/speckit.prd docs/PRD.md                                                                                                                                        \n                                                                                                                                                                  \nThen prompt: \"Which feature would you like to specify?\" and feed selection into `/speckit.specify`.                                                             \n                                                                                                                                                                  \n## PRD Format Support                                                                                                                                           \n                                                                                                                                                                  \nShould parse common patterns:                                                                                                                                   \n                                                                                                                                                                  \n  ```markdown                                                                                                                                                     \n  <!-- MoSCoW table -->                                                                                                                                           \n  | Feature | Status | Description |                                                                                                                              \n  |---------|--------|-------------|                                                                                                                              \n  | CSV Export | TODO | Export results as CSV |                                                                                                                   \n                                                                                                                                                                  \n  <!-- Checkbox list -->                                                                                                                                          \n  - [ ] CSV export for evaluation results                                                                                                                         \n  - [x] Docker deployment                                                                                                                                         \n                                                                                                                                                                  \n  <!-- Roadmap section -->                                                                                                                                        \n  ### Should Have                                                                                                                                                 \n  1. **CSV Export** - TODO - Export results as CSV                                                                                                                \n                                                                                                                                                                  ",
+  "html_url": "https://github.com/github/spec-kit/issues/1527",
+  "created_at": "2026-01-26T17:39:40Z",
+  "updated_at": "2026-08-20T00:21:14Z",
+  "state": "closed",
+  "comments": 4,
+  "author_association": "CONTRIBUTOR",
+  "user": {
+   "login": "sbhavani"
+  },
+  "labels": [
+   {
+    "name": "stale"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 1692,
+  "title": "[Feature Request] Stakeholder Summary Generation Command",
+  "body": "## Summary\n\nAdd command to generate non-technical feature summaries for stakeholders (product managers, executives, customers).\n\n## Problem\n\n- Issue #1084 (AndreasBom): \"Generate a summary to stakeholders (no technical stuff), describing the feature\"\n- InfoQ article emphasizes role-based workflows: \"Product teams focus on feature definition with only high-level technical awareness\"\n- Currently no way to generate customer-facing or management-facing documentation from specs\n\n## Proposal\n\n### New Command:  or \n\nGenerate non-technical summary including:\n- Feature description (what it does, not how)\n- Business value / customer benefit\n- Key milestones / timeline estimate\n- Dependencies (without technical jargon)\n\n### Output Formats\n- Markdown for documentation\n- Plain text for ticket system comments (Azure DevOps, JIRA)\n- Optional: HTML for email\n\n## Example\n\nInput:  (technical)\nOutput: Stakeholder summary like:\n\n\n## Priority\n\nMedium-High - Direct community request (#1084)",
+  "html_url": "https://github.com/github/spec-kit/issues/1692",
+  "created_at": "2026-02-25T21:54:42Z",
+  "updated_at": "2026-02-25T21:58:39Z",
+  "state": "closed",
+  "comments": 0,
+  "author_association": "CONTRIBUTOR",
+  "user": {
+   "login": "kanfil"
+  },
+  "labels": [],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 2176,
+  "title": "[Feature]: What-if analysis for spec requirement changes",
+  "body": "### Problem Statement\n\n ## Feature Request\n\n  **Problem:**\n  Before modifying a spec, there's no way to preview the downstream impact. Teams ask \"what happens if we  \n  drop this requirement?\" or \"what if we add OAuth?\" — but today the only way to find out is to actually   \n  make the change, re-run plan/tasks, and manually compare. This is slow and risky.\n\n### Proposed Solution\n\n ## Feature Request\n\n  **Problem:**\n  Before modifying a spec, there's no way to preview the downstream impact. Teams ask \"what happens if we  \n  drop this requirement?\" or \"what if we add OAuth?\" — but today the only way to find out is to actually   \n  make the change, re-run plan/tasks, and manually compare. This is slow and risky.\n\n **Output would include:**\n  - Complexity score before vs after\n  - Tasks added/removed/changed\n  - Effort delta (hours gained or lost)\n  - Risk assessment of the change\n  - Side-by-side diff preview\n\n  **Why this matters:**\n  - Enables data-driven spec decisions before committing to changes\n  - Prevents \"let's just try it\" changes that cascade into scope creep\n  - Gives product managers a tool to evaluate trade-offs quantitatively\n  - Completely read-only — no files modified, pure simulation\n\n\n### Alternatives Considered\n\n **Output would include:**\n  - Complexity score before vs after\n  - Tasks added/removed/changed\n  - Effort delta (hours gained or lost)\n  - Risk assessment of the change\n  - Side-by-side diff preview\n\n  **Why this matters:**\n  - Enables data-driven spec decisions before committing to changes\n  - Prevents \"let's just try it\" changes that cascade into scope creep\n  - Gives product managers a tool to evaluate trade-offs quantitatively\n  - Completely read-only — no files modified, pure simulation\n\n### Component\n\nOther\n\n### AI Agent (if applicable)\n\nNone\n\n### Use Cases\n\n_No response_\n\n### Acceptance Criteria\n\n_No response_\n\n### Additional Context\n\n_No response_",
+  "html_url": "https://github.com/github/spec-kit/issues/2176",
+  "created_at": "2026-04-11T09:00:31Z",
+  "updated_at": "2026-04-14T21:08:31Z",
+  "state": "closed",
+  "comments": 3,
+  "author_association": "CONTRIBUTOR",
+  "user": {
+   "login": "Quratulain-bilal"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 3150,
+  "title": "[Extension]: Add Spec Roadmap",
+  "body": "<!-- Body for the github/spec-kit Extension Submission issue.\n     Title: [Extension]: Add Spec Roadmap\n     Template fields are filled inline below as they appear in the form. -->\n\n### Extension ID\nroadmap\n\n### Extension Name\nSpec Roadmap\n\n### Version\n0.1.0\n\n### Description\nCapture a durable spec roadmap after the constitution, then review specs against it before and after implementation so spec-specific decisions, outcomes, and constraints are never lost.\n\n### Author\nsrobroek\n\n### Repository URL\nhttps://github.com/srobroek/speckit-roadmap\n\n### Download URL\nhttps://github.com/srobroek/speckit-roadmap/archive/refs/tags/v0.1.0.zip\n\n### License\nApache-2.0\n\n### Homepage (optional)\nhttps://github.com/srobroek/speckit-roadmap\n\n### Documentation URL (optional)\nhttps://github.com/srobroek/speckit-roadmap/blob/main/README.md\n\n### Changelog URL (optional)\nhttps://github.com/srobroek/speckit-roadmap/blob/main/CHANGELOG.md\n\n### Required Spec Kit Version\n>=0.11.6\n\n### Required Tools (optional)\n- PowerShell 7+ (pwsh) — only for running the extension's own test suite on Windows; not required to use the extension.\n\n### Number of Commands\n4\n\n### Number of Hooks (optional)\n3\n\n### Tags\nroadmap, planning, governance, review, spec-alignment\n\n### Key Features\n- `speckit.roadmap.write` (hook: after_constitution) — create or amend a versioned roadmap; harvests the constitution, ADRs, PRDs, the session, and prior notes; elicits gaps; non-destructive with a Sync Impact Report changelog.\n- `speckit.roadmap.brief` (hook: before_implement) — read-only pre-implementation review surfacing the roadmap's recorded outcome/scope/decisions/dependencies for the active spec and flagging drift.\n- `speckit.roadmap.debrief` (hook: after_implement) — read-only post-implementation review classifying drift (outcome-miss / scope-creep / constraint-violation / roadmap-stale) and proposing a `verified` status.\n- `speckit.roadmap.sync` (on demand) — read-only reconciliation of the whole roadmap ledger against the specs on disk (orphans, phantom entries, status drift, dependency contradictions).\n- Deterministic `load-config` script (bash + PowerShell) with a stable JSON contract, covered by Bats + Pester and a cross-platform parity test (CI on Linux, macOS, Windows).\n\n### Testing Checklist\n- [x] Extension installs successfully via download URL\n- [x] All commands execute without errors\n- [x] Documentation is complete and accurate\n- [x] No security vulnerabilities identified\n- [x] Tested on at least one real project\n\n### Submission Requirements\n- [x] Valid `extension.yml` manifest included\n- [x] README.md with installation and usage instructions\n- [x] LICENSE file included\n- [x] GitHub release created with version tag\n- [x] All command files exist and are properly formatted\n- [x] Extension ID follows naming conventions (lowercase-with-hyphens)\n\n### Testing Details\n**Tested on:**\n- macOS (bash 3.2 + PowerShell 7) with Spec Kit v0.11.6\n- CI: Ubuntu (Bats), macOS (Bats), Windows (Pester) — all green\n\n**Test project:** the extension's own repository (https://github.com/srobroek/speckit-roadmap) — it was built through the spec-kit workflow and dogfooded on itself (see `specs/` and `.specify/memory/roadmap.md`).\n\n**Automated tests:** the deterministic `load-config` script is covered by 35 Bats tests, 53 Pester tests, and an 8-case cross-platform JSON parity suite (bash output == PowerShell output across all fixtures), run on Linux, macOS, and Windows in CI.\n\n**Test scenarios:**\n1. Installed via the release download URL (`specify extension add --from …/v0.1.0.zip`); all four commands register and their hooks fire at `after_constitution`, `before_implement`, `after_implement`.\n2. Ran `speckit.roadmap.write` to create and later amend the roadmap (versioned, non-destructive, Sync Impact Report changelog).\n3. Ran `speckit.roadmap.brief`/`debrief`/`sync` and verified each is strictly read-only (roadmap file unchanged before/after each run) and emits a report.\n4. Verified the invalid-config path fails closed and the bash/PowerShell config outputs are byte-equal under normalized JSON.\n\n### Example Usage\n```bash\n# Install (not yet in the community catalog — install from the release):\nspecify extension add roadmap --from https://github.com/srobroek/speckit-roadmap/archive/refs/tags/v0.1.0.zip\nspecify extension enable roadmap\n\n# After /speckit.constitution — capture the roadmap:\n/speckit.roadmap.write\n\n# Before /speckit.implement — see what the roadmap expects for this spec (read-only):\n/speckit.roadmap.brief\n\n# After /speckit.implement — check the build against the roadmap (read-only):\n/speckit.roadmap.debrief\n\n# Anytime — reconcile the whole roadmap against specs on disk (read-only):\n/speckit.roadmap.sync\n```\n\n### Proposed Catalog Entry\n```json\n{\n  \"roadmap\": {\n    \"name\": \"Spec Roadmap\",\n    \"id\": \"roadmap\",\n    \"description\": \"Capture a durable spec roadmap after the constitution, then review specs against it before and after implementation so spec-specific decisions, outcomes, and constraints are never lost.\",\n    \"author\": \"srobroek\",\n    \"version\": \"0.1.0\",\n    \"download_url\": \"https://github.com/srobroek/speckit-roadmap/archive/refs/tags/v0.1.0.zip\",\n    \"repository\": \"https://github.com/srobroek/speckit-roadmap\",\n    \"homepage\": \"https://github.com/srobroek/speckit-roadmap\",\n    \"documentation\": \"https://github.com/srobroek/speckit-roadmap/blob/main/README.md\",\n    \"changelog\": \"https://github.com/srobroek/speckit-roadmap/blob/main/CHANGELOG.md\",\n    \"license\": \"Apache-2.0\",\n    \"requires\": {\n      \"speckit_version\": \">=0.11.6\"\n    },\n    \"provides\": {\n      \"commands\": 4,\n      \"hooks\": 3\n    },\n    \"tags\": [\"roadmap\", \"planning\", \"governance\", \"review\", \"spec-alignment\"],\n    \"verified\": false,\n    \"downloads\": 0,\n    \"stars\": 0,\n    \"created_at\": \"2026-06-24T00:00:00Z\",\n    \"updated_at\": \"2026-06-24T00:00:00Z\"\n  }\n}\n```\n\n### Additional Context\nBuilt and maintained through spec-kit's own workflow (constitution → roadmap → specify → plan → tasks → implement), with release-please managing versioned GitHub Releases (the `download_url` above is a release-please-published release). Speckit >= 11.6 is not technically required but what the extension was built in, so can't 100% confirm it works on older versions. \n",
+  "html_url": "https://github.com/github/spec-kit/issues/3150",
+  "created_at": "2026-06-24T16:43:23Z",
+  "updated_at": "2026-06-24T20:32:21Z",
+  "state": "closed",
+  "comments": 3,
+  "author_association": "NONE",
+  "user": {
+   "login": "srobroek"
+  },
+  "labels": [
+   {
+    "name": "extension-submission"
+   },
+   {
+    "name": "validation-passed"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 4031,
+  "title": "[Feature]: Requirements Management",
+  "body": null,
+  "html_url": "https://github.com/github/spec-kit/issues/4031",
+  "created_at": "2026-08-10T07:58:36Z",
+  "updated_at": "2026-08-10T08:25:24Z",
+  "state": "closed",
+  "comments": 0,
+  "author_association": "NONE",
+  "user": {
+   "login": "GreatGodJackChen"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 4156,
+  "title": "[Feature]: /speckit.revise - update the current spec without rewriting artifacts",
+  "body": "### Problem Statement\n\nI'm frustrated when requirements change after /speckit.specify, sometimes after /speckit.implement, and the only options are bad ones.\n\n/speckit.specify always opens a new feature folder. /speckit.clarify asks questions I already answered. /speckit.converge assumes the spec didn't move. So agents fix it by rewriting spec.md and regenerating tasks.md. History disappears. I can't tell what was dropped, and if we already shipped, nothing says \"remove the old code.\"\n\nI need a way to add or drop a requirement on the current feature: keep the old AC/FR visible as superseded or retired, add a new ID if something replaces it, and if plan/tasks already exist, only append, including remove-code work when implementation is already done. Not a full rewrite of the artifacts.\n\n### Proposed Solution\n\nAdd a core command /speckit.revise for requirement changes on the current feature (same specs/ folder). It is not specify, clarify, or converge.\n\nWhat it should do:\n\n- Never rewrite spec.md, plan.md, or tasks.md. Never open a new feature directory. Never touch application code.\n- Add a requirement -> new ID (FR/AC/SC).\n- Replace a live one -> mark the old line SUPERSEDED by {new-id}, add the new ID. Don't edit the old line to mean something else.\n- No longer valid -> mark the old line RETIRED. No new ID.\n- revisions.md is only a dated list of those IDs, not a second spec.\n- If plan.md / tasks.md exist, only append. After implement: tasks to add new code and/or remove old code. Open tasks for a dead ID get cancelled/superseded; finished [x] tasks stay.\n- Then I run /speckit.implement for the new/cleanup tasks.\n\nDuplicates (already true on a live line) should be a no-op. Implement/analyze/taskstoissues should ignore SUPERSEDED, RETIRED, and CANCELLED lines. Git should have before/after revise hooks like the other commands.\n\n### Alternatives Considered\n\nA few things I tried or thought about:\n\n- Run /speckit.specify again. Always creates 002-….. Fine for a new feature, wrong for “this AC on the current spec is no longer valid.”\n- /speckit.clarify. It’s for unknowns before the first plan (questions). I already know the change.\n- /speckit.converge. That’s “spec is stable, code lagged.” Opposite of a requirement change. After a retire it would try to put the old behavior back.\n- Edit spec.md / regenerate /speckit.tasks by hand. This is what agents do today. They rewrite the files. History and “remove the old code” both get lost.\n- Make specify update in place. Mixes “new feature” and “change this feature.” Breaks teams that want a new folder per change.\n\nThat’s why I want a separate /speckit.revise instead of stretching specify/clarify/converge.\n\n### Component\n\nSpecify CLI (initialization, commands)\n\n### AI Agent (if applicable)\n\nNone\n\n### Use Cases\n\n1. After implement, product says password login is dead, SSO only. I need the old FR marked superseded/retired, a new FR for SSO, and tasks to remove the password code and add SSO. I don’t want tasks.md regenerated.\n\n2. Mid-flight, before implement, we add one AC (expired session -> login page). Spec gets a new AC id. Plan/tasks only gain a small append if they already exist. No new 002- folder.\n\n3. A success criterion is no longer valid. Mark it RETIRED. If we already built toward it, append a cleanup task. If we haven’t implemented yet, just cancel the open tasks.\n\n4. Same revise run twice (or I ask to add an AC that’s already live). Should be a no-op, no new R#, no file rewrite.\n\n5. Spec exists, plan/tasks don’t yet. I revise first, then /speckit.plan or /speckit.tasks so they start from the updated contract.\n\n6. Two people on the same feature: one shipped, QA/product changes the requirement. The folder still has a readable trail (old line + new id), not a silently rewritten spec.\n\n### Acceptance Criteria\n\n- [ ] specify init installs /speckit.revise for the active agent (same as specify/plan/tasks).\n- [ ] It never creates a new specs/ folder and never rewrites spec.md / plan.md / tasks.md from scratch.\n- [ ] Add -> new FR/AC/SC id. Replace -> old line SUPERSEDED by {new-id}, new id added. Drop -> old line RETIRED. Live lines don’t contradict each other.\n- [ ] revisions.md is only a dated id list. Re-running the same delta is a no-op (no new R#).\n- [ ] If plan/tasks exist, they are only appended. After implement, retiring/superseding a requirement adds remove-old-code work (and add-new-code when something replaces it). Open tasks for a dead id are cancelled/superseded; [x] tasks stay.\n- [ ] Revise does not edit application code. /speckit.implement does the add/remove. Implement, analyze, and taskstoissues ignore SUPERSEDED / RETIRED / CANCELLED lines.\n- [ ] Works before plan/tasks too: only spec (+ log) changes; next step is plan or tasks, not a regenerated feature.\n- [ ] Docs (README / living-spec / agentic-sdd) describe when to use revise vs specify / clarify / converge.\n- [ ] Git has before/after revise hooks. Automated tests cover install + these rules. A sample project run shows the files weren’t regenerated.\n\n### Additional Context\n\n_No response_",
+  "html_url": "https://github.com/github/spec-kit/issues/4156",
+  "created_at": "2026-08-16T05:37:04Z",
+  "updated_at": "2026-11-17T00:32:47Z",
+  "state": "open",
+  "comments": 7,
+  "author_association": "NONE",
+  "user": {
+   "login": "harsha09"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   },
+   {
+    "name": "stale"
+   },
+   {
+    "name": "feature-assess"
+   },
+   {
+    "name": "feature-needs-clarification"
+   },
+   {
+    "name": "triage-can-wait"
+   }
+  ],
+  "reactions": {
+   "+1": 1,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ },
+ {
+  "number": 4290,
+  "title": "[Feature]: Standard evaluator contract for evidence, provenance, uncertainty, and recovery",
+  "body": "### Problem Statement\n\nSpec Kit already has a strong lifecycle and an extensible hook system, but there is no common contract for extensions that evaluate the quality or trustworthiness of artifacts between phases.\n\nThat means every evidence, provenance, factuality, security, or governance extension has to invent its own answers to questions such as:\n\n- What did the evaluator find?\n- Is the result a pass, warning, iteration request, or hard block?\n- What source or artifact supports the finding?\n- Is a statement observed, inferred, contradicted, or simply unsupported?\n- What should the workflow do next?\n- How should evaluator state survive pause/resume or context reduction?\n- How do multiple independent evaluators compose?\n\nThis is closely related to #23, where the discussion moved from a single provenance integration toward a generic registerable “linter” / “evaluator” concept that could run after workflow phases and trigger iteration.\n\nI think the missing piece is not another workflow engine. It is a small, provider-neutral **evaluator result contract** that existing hooks and extensions can use.\n\n\n### Proposed Solution\n\nDefine a standard evaluator protocol that extensions can implement while continuing to use Spec Kit's existing lifecycle and hook execution model.\n\nThe smallest useful contract would let an evaluator:\n\n1. register for one or more lifecycle events;\n2. receive the relevant resolved artifacts plus stable source/provenance references;\n3. return a versioned machine-readable result;\n4. distinguish observed evidence from generated assertions;\n5. preserve contradictory findings instead of forcing false consensus;\n6. represent insufficient evidence or unresolved uncertainty explicitly;\n7. request a bounded next action such as `pass`, `warn`, `iterate`, `clarify`, `gather_evidence`, or `block`;\n8. persist enough compact state to survive pause/resume;\n9. compose deterministically with other evaluators;\n10. remain implementation-neutral: deterministic, model-backed, local, remote, private, paid, or hybrid.\n\nThe current hook system can remain the execution mechanism. I am mainly proposing a shared evaluator **result schema and lifecycle semantics**, not a second orchestration layer.\n\n### Illustrative result\n\n```json\n{\n  \"schema_version\": \"1.0\",\n  \"evaluator\": {\n    \"id\": \"epistemic\",\n    \"version\": \"0.1.0\"\n  },\n  \"phase\": \"after_plan\",\n  \"outcome\": \"iterate\",\n  \"summary\": \"Two high-impact claims are unsupported and one requirement conflicts with an accepted constraint.\",\n  \"findings\": [\n    {\n      \"id\": \"EPI-001\",\n      \"severity\": \"high\",\n      \"kind\": \"unsupported_claim\",\n      \"subject\": \"REQ-014\",\n      \"evidence_refs\": [],\n      \"provenance_refs\": [\"spec.md#REQ-014\"],\n      \"uncertainty\": \"insufficient_evidence\",\n      \"recommended_action\": \"gather_evidence\"\n    }\n  ],\n  \"next_action\": {\n    \"kind\": \"iterate\",\n    \"target_phase\": \"plan\"\n  }\n}\n```\n\n### Alternatives Considered\n\n### Existing hooks only\n\nThis is possible today and is probably the right execution substrate, but hooks alone do not define a common result format, outcome semantics, provenance model, or composition behavior.\n\n### Add the full epistemic implementation to Spec Kit core\n\nI do not recommend this. Spec Kit should stay implementation-neutral. A generic evaluator contract should be able to support provenance engines, security checks, formal verification, factuality systems, enterprise policy, deterministic linters, and future approaches.\n\n### Use `/speckit.analyze` for this\n\n`/speckit.analyze` addresses artifact consistency and coverage. That is complementary to questions of evidence provenance, unsupported claims, contradictory evidence, uncertainty, and recovery actions.\n\n### Keep this entirely outside Spec Kit\n\nThat works for one extension, but it prevents independently developed evaluators from composing around a shared lifecycle/result protocol.\n\n### Component\n\nSpecify CLI (initialization, commands)\n\n### AI Agent (if applicable)\n\nAll agents\n\n### Use Cases\n\n1. **Evidence-backed specification**  \n   After `/speckit.specify`, identify statements presented as facts without supporting evidence and route them to clarification or research.\n\n2. **Contradiction preservation**  \n   Preserve evidence supporting opposing propositions instead of allowing a generated summary to manufacture consensus.\n\n3. **Plan stress testing**  \n   Evaluate important assumptions and failure modes after planning before implementation cost is incurred.\n\n4. **Observed test evidence**  \n   Distinguish “the agent says the test passed” from “this command was observed at revision X and produced artifact Y.”\n\n5. **Safe pause/resume and context reduction**  \n   Preserve unresolved findings, authoritative decisions, evidence references, and uncertainty without treating a generated summary as new evidence.\n\n6. **Independent evaluator composition**  \n   Run schema, security, policy, and epistemic evaluators at the same lifecycle point using one portable result contract.\n\n7. **Private or regulated environments**  \n   Allow organizations to register private evaluators without coupling Spec Kit to a specific model provider or service.\n\n8. **CI/headless use**  \n   Emit evaluator results as JSON artifacts, CI annotations, reports, or release gates.\n\n### Acceptance Criteria\n\n- [ ] A documented evaluator result schema exists with evaluator identity/version, lifecycle phase, outcome, findings, evidence/provenance references, and requested next action.\n- [ ] Existing hooks/extensions remain backward compatible and can act as the execution mechanism.\n- [ ] The protocol can represent at least pass, warn, iterate, clarification/evidence gathering, and block.\n- [ ] Multiple evaluators at one lifecycle point have deterministic composition/precedence behavior.\n- [ ] Results survive workflow pause/resume and are usable in headless/CI execution.\n- [ ] The protocol does not automatically treat model-generated assertions as observed evidence.\n- [ ] The protocol does not require hidden chain-of-thought; concise findings, rationale, evidence, and provenance are sufficient.\n- [ ] The protocol remains provider-neutral and agent-neutral.\n- [ ] Documentation includes a minimal evaluator-authoring example.\n- [ ] A reference extension demonstrates the contract without making Spec Kit core depend on the reference implementation.\n\n### Additional Context\n\n### Relationship to #23\n\nIssue #23 proposed integrating VeriTrail for hallucination detection and provenance. In the discussion, @tiagostutz suggested generalizing the idea into registerable linters/evaluators that could run after phases and trigger iteration.\n\nThis proposal is intended as a concrete continuation of that direction, not a competing concept.\n\n- Issue: https://github.com/github/spec-kit/issues/23\n- Evaluator/linter comment: https://github.com/github/spec-kit/issues/23#issuecomment-3275629088\n\n### Existing implementation I can contribute from\n\nI maintain an MIT-licensed epistemic implementation in Layer1Labs Specsmith:\n\n- https://github.com/layer1labs/specsmith/tree/main/src/epistemic\n- https://github.com/layer1labs/specsmith/blob/main/docs/site/epistemic-library.md\n- https://github.com/layer1labs/specsmith/blob/main/.specsmith/governance/EPISTEMIC-AXIOMS.md\n\nThe existing library includes typed belief/claim artifacts, epistemic boundaries, evidence handling, adversarial stress testing, contradiction detection, failure-mode graphs, certainty scoring, recovery proposals, persistent sessions, and hash-chain trace sealing.\n\nI am **not** proposing to upstream Specsmith or make Spec Kit depend on it. I am offering it as working reference code that can be adapted into a Spec Kit extension.\n\n### Applied implementation lessons\n\nIn a separate private implementation, several requirements have proven important enough that they may be useful when defining the evaluator boundary:\n\n- generated assertions must remain distinguishable from observed evidence;\n- model self-attestation should not satisfy an evidence gate by itself;\n- contradictions should be preserved rather than collapsed into a single synthesized answer;\n- requirements, accepted decisions, unresolved claims, approvals, evidence references, provenance, and uncertainty need to survive context reduction and workflow resume;\n- when evidence is insufficient, an evaluator should be able to request clarification, evidence gathering, abstention, escalation, iteration, or blocking rather than inventing certainty;\n- deterministic checks should run before probabilistic review where appropriate;\n- higher-risk work may require evaluator or verifier independence rather than allowing the same model/family to generate and certify the result.\n\nThese are examples of policies that a generic evaluator contract should be able to express. They are not proposed as mandatory Spec Kit behavior.\n\n### Contribution path\n\nI am opening the issue before attempting a large PR because this would affect the extension/workflow contract.\n\nIf maintainers prefer to validate the idea entirely as a Community Extension first, I am happy to implement it against the current hook APIs, test it on real projects, publish the extension, and use that evidence to determine whether a small standardized evaluator contract deserves promotion into core.\n\nI can contribute the existing MIT-licensed code, schemas, integration glue, tests, documentation, and real-project validation.\n\n### AI-assistance disclosure\n\nThis issue was drafted with ChatGPT assistance. I supplied and reviewed the existing implementation, project requirements, architecture, and contribution direction. ChatGPT helped inspect Spec Kit's current contribution guidance and extension model, locate the prior #23 discussion, and structure the proposal.\n\nI will personally review, understand, test, and maintain any implementation I submit.",
+  "html_url": "https://github.com/github/spec-kit/issues/4290",
+  "created_at": "2026-08-23T20:26:31Z",
+  "updated_at": "2026-09-08T22:43:49Z",
+  "state": "closed",
+  "comments": 10,
+  "author_association": "NONE",
+  "user": {
+   "login": "tbitcs"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   },
+   {
+    "name": "feature-assess"
+   },
+   {
+    "name": "feature-needs-clarification"
+   },
+   {
+    "name": "triage-out-of-scope"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 2
+  }
+ },
+ {
+  "number": 4383,
+  "title": "[Bug]: SpecKit implementation differ from spec/data-model/research/PRD",
+  "body": "### Bug Description\n\nHi,this is not really a bug, but rather unexpected.\n\nDuring one development, I gave Speckit a PRD.\nOne of the feature is to add couple properties that max length are 200 to existing model.\n\nThe generated docs spec/data-model/research they all mentioned  **A** 's length should be 1~200:\nfor example:\nfrom data-model: | `SuspendReason` | `nvarchar(200)` | nullable\n\nBut the actual implementation is: \n`SuspendReasonMaxLength = 500`\n\nI went to check the documents, and found out in `task.md`\nThe max length was not mentioned.\n\nThe reason for max length =500 that the AI give to me is：\nWhen generate the task.md file, the description for the task is vague  for the property:\n\n````to use real-time current-handler identity, version-aware state transitions, **trimmed suspend reasons, 200-character remark validation**, and explicit conflict results`````\n\nThe other property's length was mentioned, but not the  **suspend reasons**.\n\nIs this because when I run the /speckit.tasks command without description/specification or something else?\nShould the tasks,md to be more specific for each individual task?\n\n\n### Steps to Reproduce\n\nwhat I did:\nspecify init --here\n/speckit.constitution\n/speckit.specify *tell AI to look at the PRD under the doc folder\n/speckit.plan\n  \n/speckit.tasks\n  \n/speckit.implement\n\n### Expected Behavior\n\nExpected:\nThe task should mention both properties have max length 200\n\n### Actual Behavior\n\nMentioned only one property and missed another.\n\n### Specify CLI Version\n\n1.0.1\n\n### AI Agent\n\nClaude Code\n\n### Operating System\n\nWindows 11\n\n### Python Version\n\n3.11.9 \n\n### Error Logs\n\n```shell\n\n```\n\n### Additional Context\n\n_No response_",
+  "html_url": "https://github.com/github/spec-kit/issues/4383",
+  "created_at": "2026-09-01T03:16:25Z",
+  "updated_at": "2026-09-08T13:39:35Z",
+  "state": "closed",
+  "comments": 1,
+  "author_association": "NONE",
+  "user": {
+   "login": "baozbao"
+  },
+  "labels": [
+   {
+    "name": "bug-assess"
+   },
+   {
+    "name": "severity-low"
+   },
+   {
+    "name": "needs-triage"
+   }
+  ],
+  "reactions": {
+   "+1": 0,
+   "heart": 0,
+   "hooray": 0,
+   "rocket": 0,
+   "eyes": 0
+  }
+ }
+]

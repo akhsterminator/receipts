@@ -1,0 +1,27 @@
+name: Bug report
+description: Something is broken or wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include the command you ran and the output. Please don't paste customer data; Receipts' redacted store is fine.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "`npx @hashimua/receipts --version` and `node --version`"
+  - type: dropdown
+    id: extractor
+    attributes:
+      label: Extractor
+      options: [heuristic (offline), claude, ollama, not sure]

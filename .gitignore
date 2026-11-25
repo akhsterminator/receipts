@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+.env.*
+# Receipts: salts must never be committed (they make pseudonyms reversible by brute force)
+.receipts/.salt
+**/.receipts/.salt
+# Raw, un-redacted interview material stays on your machine
+product/interviews/raw/
+.vercel
